@@ -5,8 +5,12 @@ public class Order {
     private String id;
     private int deliveryTime;
 
-    public Order(String id, String deliveryTime) {
 
+    public Order(String id, String deliveryTime) {
+        this.id=id;
+        String[]arr= deliveryTime.split(":");
+        int delTime=(Integer.valueOf(arr[0])*60)+Integer.valueOf(arr[1]);
+        this.deliveryTime = delTime;
         // The deliveryTime has to converted from string to int and then stored in the attribute
         //deliveryTime  = HH*60 + MM
     }
@@ -15,5 +19,11 @@ public class Order {
         return id;
     }
 
-    public int getDeliveryTime() {return deliveryTime;}
+    public int getDeliveryTime() {
+        return deliveryTime;
+    }
+
+    public void setDeliveryTime(int deliveryTime) {
+        this.deliveryTime = deliveryTime;
+    }
 }
